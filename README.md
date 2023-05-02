@@ -1,6 +1,6 @@
 # Purchase App
 
-It is an android application developed using Flutter
+It is an android application developed using Flutter.
 
 Purchase app is a user-friendly platform that allows users to browse through a variety of products, add them to their favorite list, and purchase items by adding them to their cart.  
 
