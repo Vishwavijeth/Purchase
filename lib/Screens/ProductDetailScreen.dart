@@ -1,4 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/Screens/AppColor.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -107,38 +106,23 @@ class _ProductDetailsState extends State<ProductDetails> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                height: 15.0,
+                height: 60.0,
               ),
               AspectRatio(
                 aspectRatio: 3.5,
-                child: CarouselSlider(
-                  items: [
-                    for (final imageUrl in [widget.product['product-img']])
-                      Padding(
-                        padding: const EdgeInsets.only(left: 3.0, right: 3.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            image: DecorationImage(
-                              image: NetworkImage(imageUrl),
-                              fit: BoxFit.fitWidth,
-                            ),
-                          ),
-                        ),
-                      ),
-                  ],
-                  options: CarouselOptions(
-                      autoPlay: false,
-                      enlargeCenterPage: true,
-                      //reverse: true,
-                      viewportFraction: 0.8,
-                      enlargeStrategy: CenterPageEnlargeStrategy.height,
-                      onPageChanged: (val, carouselPageChanged) {
-                        setState(() {});
-                      }),
+                child: Transform.scale(
+                  scale: 2.5,
+                  child: Image(
+                    image: NetworkImage(
+                      widget.product['product-img'],
+                    ),
+                    //height: MediaQuery.of(context).size.height,
+                    //width: MediaQuery.of(context).size.width,
+                  ),
                 ),
               ),
               SizedBox(
-                height: 8.0,
+                height: 120.0,
               ),
               Center(
                 child: Text(
