@@ -155,56 +155,55 @@ class _HomeState extends State<Home> {
                 height: 15.0,
               ),
               Expanded(
-                  child: GridView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: products.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3, childAspectRatio: 1),
-                      itemBuilder: (_, index) {
-                        //print('itemcount : ${products.length}');
-                        return GestureDetector(
-                          onTap: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  ProductDetails(products[index]),
-                            ),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 20.0),
-                            child: Card(
-                              margin: EdgeInsets.only(
-                                  bottom: 50, left: 0, right: 0),
-                              elevation: 3,
-                              child: Column(
-                                children: <Widget>[
-                                  AspectRatio(
-                                    aspectRatio: 2,
-                                    child: Container(
-                                      color: Colors.lightGreen,
-                                      child: Image.network(
-                                        products[index]['product-img'],
-                                      ),
-                                    ),
+                child: GridView.builder(
+                  scrollDirection: Axis.vertical,
+                  itemCount: products.length,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2, childAspectRatio: 0.8),
+                  itemBuilder: (_, index) {
+                    //print('itemcount : ${products.length}');
+                    return GestureDetector(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductDetails(products[index]),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Card(
+                          margin:
+                              EdgeInsets.only(bottom: 50, left: 0, right: 0),
+                          elevation: 3,
+                          child: Column(
+                            children: <Widget>[
+                              AspectRatio(
+                                aspectRatio: 2,
+                                child: Container(
+                                  color: Colors.lightGreen,
+                                  child: Image.network(
+                                    products[index]['product-img'],
                                   ),
-                                  Text(
-                                    " ${products[index]['product-name']}",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20),
-                                  ),
-                                  Text(
-                                    "\$ ${products[index]['product-prize'].toString()}",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16),
-                                  ),
-                                ],
+                                ),
                               ),
-                            ),
+                              Text(
+                                " ${products[index]['product-name']}",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 20),
+                              ),
+                              Text(
+                                "\$ ${products[index]['product-prize'].toString()}",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold, fontSize: 16),
+                              ),
+                            ],
                           ),
-                        );
-                      }))
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              )
             ],
           ),
         ),
